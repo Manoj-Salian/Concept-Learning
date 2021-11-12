@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
-
+//https://www.youtube.com/watch?v=D21-XVw6nYw&t=874s
 public class DFSStack {
 
 List<Integer> adj[];
