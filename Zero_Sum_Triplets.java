@@ -1,23 +1,54 @@
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
-//https://www.geeksforgeeks.org/find-triplets-array-whose-sum-equal-zero/
+
+//https://www.tutorialcup.com/leetcode-solutions/3sum-leetcode-solution.htm
+//https://practice.geeksforgeeks.org/problems/three-sum-closest/1/
 public class Zero_Sum_Triplets {
 
 	public static void main(String[] args) {
-		int[] arr = {0, -1, 2, -3, 1};
-		int count = 0;
-		List<List<Integer>> pairList = new LinkedList<>();
-		for(int i=0;i<arr.length-2;i++) {
-			for(int j=i+1,k=arr.length-1;j<arr.length-1;j++) {
-				if(arr[i]+arr[j]+arr[k] ==0) {
-					pairList.add(Arrays.asList(arr[i],arr[j],arr[k]));
-					count++;
-				}
-				k--;
-			}
-		}
-		System.out.println(count);
+		int[] nums={-1,0,1,2,-1,-4};
+        for(List<Integer> list:  threeSum(nums))
+        {
+            for(int x: list)
+            System.out.print(x+ " ");
+            System.out.println();
+        }
+
 	}
+	
+	public static List<List<Integer>> threeSum(int[] nums) {
+	       
+        List<List<Integer>> ans=new ArrayList<List<Integer>>();
+        Arrays.sort(nums);
+        int n=nums.length;
+        
+        for(int i=0;i<n;i++)
+        {
+            int p=i+1,q=n-1;
+            while(p<q)
+            {
+                if(nums[p]+nums[q]==-nums[i])
+                { //System.out.println(p+" "+q);
+                    List<Integer> t=new ArrayList<Integer>();
+                    t.add(nums[i]);
+                    t.add(nums[p]);
+                    t.add(nums[q]);
+                 
+                 ans.add(t);
+                    
+                    while(p+1<q &&  nums[p+1]==nums[p]) p++;
+                    while(q-1>p &&  nums[q-1]==nums[q]) q--;
+                    
+                    p++; q--;
+                }
+                else if(nums[p]+nums[q] < -nums[i]) p++;
+                else q--;
+            }
+            
+            while(i+1<n && nums[i+1]==nums[i]) i++;
+        }
+        return ans;
+    }
 
 }
