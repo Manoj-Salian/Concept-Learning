@@ -1,51 +1,44 @@
+package com.testing;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-//https://www.youtube.com/watch?v=jQJyWcRPEpE&ab_channel=NareshGupta
-public class WordBreakII {
 
+//https://www.youtube.com/watch?v=LPs6Qo5qlJM&ab_channel=NareshGupta
+public class WordBreak {
+	
 	public static void main(String[] args) {
-		String s= "catsanddog";
+		String s= "leetcode";
 		List<String> words= new ArrayList<>();
-		Map<String,List<String>> map = new HashMap<>();
-		words.add("cats");
-		words.add("dog");
-		words.add("cat");
-		words.add("and");
-		words.add("sand");
+		Map<String,Boolean> map = new HashMap<>();
+		words.add("leet");
+		words.add("code");
 		
-		List<String> list= wordBreakUtil(s,words,map);
-		if(list.size() > 0) {
-			System.out.println("words matches with dictionery");
+		if(wordBreakUtil(s,words,map)) {
+			System.out.println("string is part of wordbreak");
 		}else {
-			System.out.println("words does not match with dictionery");
+			System.out.println("string is not part of wordbreak");
 		}
-
+		
 	}
 
-	private static List<String> wordBreakUtil(String s, List<String> words, Map<String, List<String>> map) {
-		List<String> result = new ArrayList<>();
-		
-		if(map.containsKey(s)) {
-			return map.get(s);
-		}
-		if(words.contains(s)) {
-			result.add(s);
-		}else {
-			for(int i=1;i<=s.length();i++) {
-				String left = s.substring(0,i);
-				if(words.contains(left)){
-					List<String> sublist = wordBreakUtil(s.substring(i),words,map);
-					for(String str: sublist) {
-						result.add(left+ " " + str);
-					}
-				}
+	private static boolean wordBreakUtil(String s, List<String> words,Map<String,Boolean>map) {
+		if(words.contains(s))
+			return true;
+		if(map.containsKey(s))
+			return true;
+		for(int i=0;i<=s.length();i++) {
+			String left = s.substring(0,i);
+			if(words.contains(left) && wordBreakUtil(s.substring(i), words,map)) {
+				map.put(s, true);
+				return true;
 			}
 		}
-		
-		map.put(s, result);
-		return result;
+		map.put(s, false);
+		return false;
 	}
+	
+	
 
 }
