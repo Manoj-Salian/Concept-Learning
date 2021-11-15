@@ -20,7 +20,7 @@ public class TopKFrequentElements {
         		pq.poll();
         	}
         }
-        System.out.println("Hi");
+        System.out.println(Arrays.toString(pq.toArray()));
 	}
 
 }
