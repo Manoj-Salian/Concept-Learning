@@ -42,7 +42,7 @@ public class BFS {
 			
 			for(int neighbor :adj[n]) {
 				if(!visited[neighbor]) {
-					visited[n] = true;
+					visited[neighbor] = true;
 					queue.add(neighbor);
 					parent[neighbor] = n; 
 				}
