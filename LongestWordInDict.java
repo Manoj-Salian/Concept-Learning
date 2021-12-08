@@ -16,7 +16,7 @@ public class LongestWordInDict {
 				if(w.length() > result.length()) {
 					result = w;
 				}
-				set.add(result);
+				set.add(w);
 			}
 		}
 		
