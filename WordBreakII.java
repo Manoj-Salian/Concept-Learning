@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-//https://www.youtube.com/watch?v=uR3RElKnrkU
+//https://www.youtube.com/watch?v=jQJyWcRPEpE&t=433s
 public class WordBreakII {
 
 	public static void main(String[] args) {
