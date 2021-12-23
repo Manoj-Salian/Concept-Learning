@@ -1,5 +1,6 @@
 import java.util.Arrays;
-
+//https://www.lintcode.com/en/old/problem/meeting-rooms-ii/
+//https://www.youtube.com/watch?v=dxVcMDI7vyI&t=618s  --- Minimum Plateform Required -- Reference
 public class ManimumMeetingRoom {
 
 	public static void main(String[] args) {
