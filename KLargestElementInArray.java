@@ -9,7 +9,7 @@ public class KLargestElementInArray {
 		
 		int k = 2;
 		
-		PriorityQueue<Integer> pq = new PriorityQueue<Integer>((a, b) -> b-a);
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
 		for(int i=0;i<arr.length;i++) {
 			pq.add(arr[i]);
 			
