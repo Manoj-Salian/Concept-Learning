@@ -29,7 +29,7 @@ public class AddTwoStrings {
 		            sb.append(sum.get(i));
 		        }
 		        
-		        System.out.println("sb  = "sb.toString());
+		        System.out.println("sb.toString = " + sb.toString());
 	}
 
 }
